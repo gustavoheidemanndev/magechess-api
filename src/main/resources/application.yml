@@ -1,0 +1,29 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: magechess-api
+  datasource:
+    url: jdbc:h2:mem:magechess
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: false
+    properties:
+      hibernate:
+        format_sql: true
+
+app:
+  jwt:
+    secret: MageChessSecretKeyForJWTTokenGeneration2024MustBeLongEnoughForHS512
+    expiration-ms: 86400000
+  cors:
+    allowed-origins: http://localhost:5173
