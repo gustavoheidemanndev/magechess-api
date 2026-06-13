@@ -5,7 +5,7 @@ spring:
   application:
     name: magechess-api
   datasource:
-    url: jdbc:h2:mem:magechess
+    url: jdbc:h2:file:./data/magechess;AUTO_SERVER=TRUE
     driver-class-name: org.h2.Driver
     username: sa
     password:
@@ -15,11 +15,17 @@ spring:
       path: /h2-console
   jpa:
     hibernate:
-      ddl-auto: create-drop
-    show-sql: false
+      ddl-auto: update
+    show-sql: true
     properties:
       hibernate:
         format_sql: true
+
+logging:
+  level:
+    com.magechess: DEBUG
+    org.springframework.web: DEBUG
+    org.springframework.security: DEBUG
 
 app:
   jwt:
